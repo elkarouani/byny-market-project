@@ -8,5 +8,6 @@ export default function useAuth(initialState: UserInterface) {
   return { 
     userState,
     signIn: (email: string) => authDispatch({ type: "SIGN_IN", payload: email }),
+    signUp: (email: string) => authDispatch({ type: "SIGN_UP", payload: email }),
   };
 }
