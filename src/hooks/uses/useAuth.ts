@@ -1,8 +1,12 @@
-import React from "react";
+import { useReducer } from "react";
 import UserInterface from "../interfaces/UserInterface";
+import authReducer from "../reducers/authReducer";
 
 export default function useAuth(initialState: UserInterface) {
-  const [user, setUser] = React.useState(initialState);
+  const [userState, authDispatch] = useReducer(authReducer, initialState);
 
-  return { user, setUser };
+  return { 
+    userState,
+    signIn: (email: string) => authDispatch({ type: "SIGN_IN", payload: email }),
+  };
 }
