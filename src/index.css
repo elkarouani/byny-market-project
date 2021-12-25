@@ -4,6 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Layout */
 .main-layout__content {
   @apply font-montserrat text-primary;
+}
+
+/* Simple Input */
+.simple-input__label {
+  @apply ml-2 block text-sm font-medium leading-5 text-gray-700;
+}
+.simple-input__input {
+  @apply border border-gray-300 rounded-lg w-full py-2 px-4;
+}
+.simple-input__input--error {
+  @apply border border-error rounded-lg w-full py-2 px-4;
+}
+.simple-input__input--success {
+  @apply border border-success rounded-lg w-full py-2 px-4;
 }

@@ -7,6 +7,8 @@ module.exports = {
       },
       colors: {
         primary: '#0E4D80',
+        error: '#FB7C7C',
+        success: '#A2CE38',
       }
     },
   },
