@@ -27,6 +27,14 @@ export default function storeReducer(state: StoreInterface, action: any) {
           newProducts: [...state.products.newProducts, new Product()],
         },
       };
+    case "GET_MOST_PURCHASED_PRODUCTS":
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          mostPurchasedProducts: [...state.products.mostPurchasedProducts, new Product()],
+        },
+      };
     default:
       return state;
   }

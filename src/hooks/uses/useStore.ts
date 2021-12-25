@@ -16,6 +16,9 @@ export default function useStore() {
       },
       loadNewProducts: () => {
         storeDispatch({ type: "GET_NEW_PRODUCTS" });
+      },
+      loadMostPurhasedProducts: () => {
+        storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" });
       }
     }
   };
