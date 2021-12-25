@@ -1,7 +1,5 @@
-import GoogleIcon from "@/components/Icons/GoogleIcon";
-import LinkedinIcon from "@/components/Icons/LinkedinIcon";
-import TwitterIcon from "@/components/Icons/TwitterIcon";
 import ActionButton from "@/components/UI/MyButtons/ActionButton";
+import SocialButton from "@/components/UI/MyButtons/SocialButton";
 import SimpleInput from "@/components/UI/MyInputs/SimpleInput";
 import HeadlessLayout from "@/layouts/HeadlessLayout";
 import { useContext } from "react";
@@ -23,9 +21,9 @@ export default function SignInPage() {
       {/* <ActionButton 
         label="Connect"
       /> */}
-      <GoogleIcon />
-      <LinkedinIcon />
-      <TwitterIcon />
+      <SocialButton socialApp="google" />
+      <SocialButton socialApp="linkedin" />
+      <SocialButton socialApp="twitter" />
     </div>
   );
 }
