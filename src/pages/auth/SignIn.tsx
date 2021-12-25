@@ -1,3 +1,6 @@
+import ActionButton from "@/components/UI/MyButtons/ActionButton";
+import SocialButton from "@/components/UI/MyButtons/SocialButton";
+import SimpleInput from "@/components/UI/MyInputs/SimpleInput";
 import HeadlessLayout from "@/layouts/HeadlessLayout";
 import { useContext } from "react";
 import { UserContext } from "../../hooks/contexts/UserContext";
@@ -10,13 +13,17 @@ export default function SignInPage() {
   return (
     <div>
       <HeadlessLayout.PageTitle title="Sign In" />
-      {/* <form action="#">
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" />
-        <label htmlFor="password">Password</label>
-        <input type="password" id="password" />
-        <button type="submit">Sign In</button>
-      </form> */}
+      {/* <SimpleInput 
+        id="EmailInput"
+        label="Email Address :"
+        placeholder="ex: john@mail.com"
+      /> */}
+      {/* <ActionButton 
+        label="Connect"
+      /> */}
+      <SocialButton socialApp="google" />
+      <SocialButton socialApp="linkedin" />
+      <SocialButton socialApp="twitter" />
     </div>
   );
 }
