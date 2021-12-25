@@ -6,7 +6,7 @@
 
 /* Layout */
 .main-layout__content {
-  @apply font-montserrat text-primary;
+  @apply font-montserrat text-primary animate-fade-in;
 }
 
 /* Sign In page */
