@@ -13,7 +13,7 @@ export default function SignInPage() {
   return (
     <div className="px-12">
       <HeadlessLayout.PageTitle title="Sign In" />
-      <form action="#" className="signin-page__form">
+      <form action="#" className="auth-page__form">
         <div className="space-y-8">
           <SimpleInput 
             id="EmailInput"
