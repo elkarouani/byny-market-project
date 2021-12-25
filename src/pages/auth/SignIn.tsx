@@ -11,19 +11,31 @@ export default function SignInPage() {
   console.log(user);
 
   return (
-    <div>
+    <div className="px-12">
       <HeadlessLayout.PageTitle title="Sign In" />
-      {/* <SimpleInput 
-        id="EmailInput"
-        label="Email Address :"
-        placeholder="ex: john@mail.com"
-      /> */}
-      {/* <ActionButton 
-        label="Connect"
-      /> */}
-      <SocialButton socialApp="google" />
-      <SocialButton socialApp="linkedin" />
-      <SocialButton socialApp="twitter" />
+      <form action="#" className="signin-page__form">
+        <div className="space-y-8">
+          <SimpleInput 
+            id="EmailInput"
+            label="Email Address :"
+            placeholder="ex: john@mail.com"
+          />
+          <SimpleInput 
+            id="PasswordInput"
+            label="Password :"
+            placeholder="••••••••"
+          />
+        </div>
+        <ActionButton
+          label="Connect"
+        />
+      </form>
+      <hr className="mt-16 mb-6" />
+      <div className="flex justify-around">
+        <SocialButton socialApp="google" />
+        <SocialButton socialApp="linkedin" />
+        <SocialButton socialApp="twitter" />
+      </div>
     </div>
   );
 }
