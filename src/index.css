@@ -10,7 +10,7 @@
 }
 
 /* Sign In page */
-.signin-page__form {
+.auth-page__form {
   @apply space-y-12 flex flex-col justify-center;
 }
 
