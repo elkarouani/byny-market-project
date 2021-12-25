@@ -6,6 +6,7 @@ import storeReducer from "../reducers/storeReducer";
 const storeInitialState: StoreInterface = {
   products: {
     allProducts: [new Product()],
+    allCategories: [""]
   },
 };
 
@@ -16,6 +17,9 @@ export default function useStore() {
     productsState: storeState.products,
     loadAllProducts: () => {
       storeDispatch({ type: "GET_ALL_PRODUCTS" });
+    },
+    loadAllCategories: () => {
+      storeDispatch({ type: "GET_ALL_CATEGORIES" });
     }
   };
 }

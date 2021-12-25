@@ -9,15 +9,17 @@ interface ProductsContextProviderProps {
 
 const productsInitialState: ProductsInterface = {
   allProducts: [new Product()],
+  allCategories: [""],
 };
 export const ProductsContext = createContext(productsInitialState);
 
 const ProductsContextProvider = ({ children }: ProductsContextProviderProps) => {
-  const { productsState, loadAllProducts } = useStore();
+  const { productsState, loadAllProducts, loadAllCategories } = useStore();
 
   const providerValue = {
     ...productsState,
     loadAllProducts,
+    loadAllCategories,
   };
 
   return (
