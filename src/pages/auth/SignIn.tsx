@@ -1,3 +1,6 @@
+import GoogleIcon from "@/components/Icons/GoogleIcon";
+import LinkedinIcon from "@/components/Icons/LinkedinIcon";
+import TwitterIcon from "@/components/Icons/TwitterIcon";
 import ActionButton from "@/components/UI/MyButtons/ActionButton";
 import SimpleInput from "@/components/UI/MyInputs/SimpleInput";
 import HeadlessLayout from "@/layouts/HeadlessLayout";
@@ -17,9 +20,12 @@ export default function SignInPage() {
         label="Email Address :"
         placeholder="ex: john@mail.com"
       /> */}
-      <ActionButton 
+      {/* <ActionButton 
         label="Connect"
-      />
+      /> */}
+      <GoogleIcon />
+      <LinkedinIcon />
+      <TwitterIcon />
     </div>
   );
 }
