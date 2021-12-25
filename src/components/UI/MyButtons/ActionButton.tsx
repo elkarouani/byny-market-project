@@ -1,11 +1,17 @@
-export default function ActionButton(props: any) {
+interface ActionButtonProps {
+  onClick?: () => void;
+  disabled?: boolean;
+  label?: string;
+}
+
+export default function ActionButton(props: ActionButtonProps) {
   return (
     <button
-      className="btn btn-primary"
+      className="action-button"
       onClick={props.onClick}
       disabled={props.disabled}
     >
-      {props.label}
+      {props.label || "click"}
     </button>
   );
 }

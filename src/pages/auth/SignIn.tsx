@@ -1,3 +1,4 @@
+import ActionButton from "@/components/UI/MyButtons/ActionButton";
 import SimpleInput from "@/components/UI/MyInputs/SimpleInput";
 import HeadlessLayout from "@/layouts/HeadlessLayout";
 import { useContext } from "react";
@@ -11,10 +12,13 @@ export default function SignInPage() {
   return (
     <div>
       <HeadlessLayout.PageTitle title="Sign In" />
-      <SimpleInput 
+      {/* <SimpleInput 
         id="EmailInput"
         label="Email Address :"
         placeholder="ex: john@mail.com"
+      /> */}
+      <ActionButton 
+        label="Connect"
       />
     </div>
   );

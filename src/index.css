@@ -22,3 +22,8 @@
 .simple-input__input--success {
   @apply border border-success rounded-lg w-full py-2 px-4;
 }
+
+/* Action Button */
+.action-button {
+  @apply border border-primary font-medium rounded-lg py-2 px-4;
+}
