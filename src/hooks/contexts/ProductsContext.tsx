@@ -1,21 +1,23 @@
 import React, { createContext } from "react";
-import Product from "../entities/Product";
+import productsInitialState from "../initials/ProductsInitialState";
 import useStore from "../uses/useStore";
 
 interface ProductsContextProviderProps {
   children: React.ReactNode;
 }
 
-const productsInitialState = {
-  products: [new Product()],
-};
 export const ProductsContext = createContext(productsInitialState);
 
 const ProductsContextProvider = ({ children }: ProductsContextProviderProps) => {
-  const { storeState } = useStore(productsInitialState);
+  const { productsState, productsContextActions } = useStore();
+
+  const providerValue = {
+    ...productsState,
+    ...productsContextActions,
+  };
 
   return (
-    <ProductsContext.Provider value={storeState}>
+    <ProductsContext.Provider value={providerValue}>
       {children}
     </ProductsContext.Provider>
   );

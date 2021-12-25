@@ -1,11 +1,25 @@
 import { useReducer } from "react";
-import StoreInterface from "../interfaces/StoreInterface";
+import storeInitialState from "../initials/StoreInitialState";
 import storeReducer from "../reducers/storeReducer";
 
-export default function useStore(initialState: StoreInterface) {
-  const [storeState, storeDispatch] = useReducer(storeReducer, initialState);
+export default function useStore() {
+  const [storeState, storeDispatch] = useReducer(storeReducer, storeInitialState);
 
   return {
-    storeState,
+    productsState: storeState.products,
+    productsContextActions: {
+      loadAllProducts: () => {
+        storeDispatch({ type: "GET_ALL_PRODUCTS" });
+      },
+      loadAllCategories: () => {
+        storeDispatch({ type: "GET_ALL_CATEGORIES" });
+      },
+      loadNewProducts: () => {
+        storeDispatch({ type: "GET_NEW_PRODUCTS" });
+      },
+      loadMostPurhasedProducts: () => {
+        storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" });
+      }
+    }
   };
 }

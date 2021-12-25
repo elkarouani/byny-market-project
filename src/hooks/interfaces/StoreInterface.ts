@@ -1,5 +1,5 @@
-import Product from "../entities/Product";
+import ProductsInterface from "./ProductsInterface";
 
 export default interface StoreInterface {
-    products: Array<Product>;
+    products: ProductsInterface;
 }
