@@ -11,7 +11,7 @@ describe("Store/unit: Get all categories", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.loadAllCategories();
+      result.current.productsContextActions.loadAllCategories();
     });
 
     expect(result.current.productsState.allCategories.length).toBeGreaterThan(1);

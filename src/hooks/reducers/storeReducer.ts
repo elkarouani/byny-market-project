@@ -19,6 +19,14 @@ export default function storeReducer(state: StoreInterface, action: any) {
           allCategories: [...state.products.allCategories, ""],
         },
       };
+    case "GET_NEW_PRODUCTS":
+      return {
+        ...state,
+        products: {
+          ...state.products,
+          newProducts: [...state.products.newProducts, new Product()],
+        },
+      };
     default:
       return state;
   }
