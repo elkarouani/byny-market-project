@@ -3,6 +3,7 @@ import React, { Suspense } from 'react';
 
 const CONTEXT_REGISTER: Array<string> = [
 	'./contexts/UserContext',
+	'./contexts/ProductsContext',
 ];
 
 const getProviders = () =>
