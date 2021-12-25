@@ -6,7 +6,7 @@ const CONTEXT_REGISTER: Array<string> = [
 
 const getProviders = () =>
     CONTEXT_REGISTER.map(context_relative_path =>
-        React.lazy(() => import(`${context_relative_path}`))
+        React.lazy(() => import(/* @vite-ignore */`${context_relative_path}`))
     );
 
 interface ContextManagerProviderProps {

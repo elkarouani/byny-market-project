@@ -1,7 +1,9 @@
+import HeadlessLayout from "@/layouts/HeadlessLayout";
+
 export default function CartPage() {
     return (
         <div>
-            <h1>Cart Page</h1>
+            <HeadlessLayout.PageTitle title="Your Cart" />
         </div>
     );
 }
