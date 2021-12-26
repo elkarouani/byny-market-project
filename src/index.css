@@ -5,8 +5,17 @@
 @tailwind utilities;
 
 /* Layout */
-.main-layout__content {
+.layout {
   @apply font-montserrat text-primary animate-fade-in;
+}
+.layout__footer {
+  @apply mt-4 p-3 flex items-center justify-between bg-[#95AFBA]/20;
+}
+.layout__footer--navigation {
+  @apply text-dark-primary text-sm flex flex-col space-y-1;
+}
+.layout__footer--rights {
+  @apply text-primary text-sm flex flex-col items-center font-medium;
 }
 
 /* Sign In page */
@@ -43,10 +52,10 @@
   @apply py-1 flex items-center justify-center space-x-1 bg-[#95AFBA33] bg-opacity-20 cursor-pointer;
 }
 .simple-dropdown__content {
-  @apply flex flex-col items-center bg-[#d1dbdf33] bg-opacity-20 text-dark-primary;
+  @apply w-full flex flex-col items-center bg-white text-dark-primary absolute -bottom-[66px];
 }
 .simple-dropdown__content--item {
-  @apply w-full py-1 text-center hover:bg-[#95AFBA33] hover:bg-opacity-20 border-b border-[#95AFBA33] border-opacity-20 cursor-pointer selection:bg-none;
+  @apply w-full py-1 text-center bg-[#d1dbdf33] bg-opacity-20 hover:bg-[#95AFBA33] hover:bg-opacity-20 border-b border-[#95AFBA33] border-opacity-20 cursor-pointer selection:bg-none;
 }
 
 /* Product Card */

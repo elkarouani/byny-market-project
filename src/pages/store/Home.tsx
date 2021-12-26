@@ -27,7 +27,6 @@ export default function HomePage() {
 	return (
 		<div className="space-y-8">
 			<h1>Home Page</h1>
-			{/* <img src={BynyMarketLogo} alt="byny market brand" /> */}
 			{/* <MenuIcon /> */}
 			{/* <DropDownArrowIcon /> */}
 			{/* <SimpleDropDown

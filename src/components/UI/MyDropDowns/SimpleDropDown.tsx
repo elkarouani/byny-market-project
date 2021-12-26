@@ -22,7 +22,7 @@ export default function SimpleDropDown(props: SimpleDropDownProps) {
 	};
 
 	return (
-		<div className="flex flex-col">
+		<div className="flex flex-col relative">
 			<div className="simple-dropdown__trigger" onClick={handleClick}>
 				<span className="text-dark-primary font-medium selection:bg-none">{props.label || "drop"}</span>
 				<DropDownArrowIcon />
