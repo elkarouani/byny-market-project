@@ -37,3 +37,56 @@
 .social-button {
   @apply border border-worm-primary rounded-lg p-1;
 }
+
+/* Simple Drop Down */
+.simple-dropdown__trigger {
+  @apply py-1 flex items-center justify-center space-x-1 bg-[#95AFBA33] bg-opacity-20 cursor-pointer;
+}
+.simple-dropdown__content {
+  @apply flex flex-col items-center bg-[#d1dbdf33] bg-opacity-20 text-dark-primary;
+}
+.simple-dropdown__content--item {
+  @apply w-full py-1 text-center hover:bg-[#95AFBA33] hover:bg-opacity-20 border-b border-[#95AFBA33] border-opacity-20 cursor-pointer selection:bg-none;
+}
+
+/* Product Card */
+.product-card__layout {
+  @apply w-fit px-3 py-1 flex flex-col items-center border border-[#3F7CAC80]/50 rounded-xl bg-[#3F7CAC0D]/5;
+}
+.product-card__illustration {
+  @apply w-14 h-14 mt-2 px-1 flex items-center justify-center bg-white border border-[#3F7CACB2]/70 rounded;
+}
+.product-card__label {
+  @apply mt-2 text-sm font-semibold text-success;
+}
+.product-card__description {
+  @apply mt-1 text-dark-primary font-medium text-xs;
+}
+.product-card__footer {
+  @apply w-full mt-4 flex items-center justify-between;
+}
+.product-card__footer--add-to-cart {
+  @apply w-fit h-4 !p-2 text-xs flex items-center justify-center;
+}
+
+/* Service Card */
+.service-card__illustration {
+  @apply w-11 h-11 mt-2 px-1 bg-[#3F7CAC80]/50 flex items-center justify-center rounded;
+}
+
+/* Simple Navigator */
+.simple-navigator__layout {
+  @apply flex items-center space-x-3 text-dark-primary text-sm text-center;
+}
+
+/* Simple Carousel */
+.simple-carousel__content {
+  @apply flex overflow-x-auto gap-6 snap-x snap-mandatory before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw];
+}
+.simple-carousel__content::-webkit-scrollbar {
+  display: none;
+}
+.simple-carousel__content {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
