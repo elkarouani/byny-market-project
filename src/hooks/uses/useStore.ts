@@ -7,6 +7,7 @@ export default function useStore() {
 
   return {
     productsState: storeState.products,
+    servicesState: storeState.services,
     productsContextActions: {
       loadAllProducts: () => {
         storeDispatch({ type: "GET_ALL_PRODUCTS" });
@@ -19,6 +20,11 @@ export default function useStore() {
       },
       loadMostPurhasedProducts: () => {
         storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" });
+      }
+    },
+    servicesContextActions: {
+      loadAllServices: () => {
+        storeDispatch({ type: "GET_ALL_SERVICES" });
       }
     }
   };

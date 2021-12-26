@@ -1,4 +1,5 @@
 import Product from "../entities/Product";
+import Service from "../entities/Service";
 import StoreInterface from "../interfaces/StoreInterface";
 
 export default function storeReducer(state: StoreInterface, action: any) {
@@ -33,6 +34,14 @@ export default function storeReducer(state: StoreInterface, action: any) {
         products: {
           ...state.products,
           mostPurchasedProducts: [...state.products.mostPurchasedProducts, new Product()],
+        },
+      };
+    case "GET_ALL_SERVICES":
+      return {
+        ...state,
+        services: {
+          ...state.services,
+          allServices: [...state.services.allServices, new Service()],
         },
       };
     default:
