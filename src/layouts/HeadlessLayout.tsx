@@ -17,8 +17,8 @@ interface MenuSubComponents {
 }
 
 const HeadlessLayout: FC<{}> & MenuSubComponents = ({ children }) => (
-	<div className="main-layout">
-		<div className="main-layout__content">
+	<div className="layout">
+		<div className="layout__content">
 			{children}
 		</div>
 	</div>
