@@ -34,6 +34,8 @@ export default function storeReducer(state: StoreInterface, action: any) {
         return product;
       });
 
+      console.log(newProductsList);
+
       return {
         ...state,
         products: {

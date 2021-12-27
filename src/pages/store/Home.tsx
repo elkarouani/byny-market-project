@@ -5,28 +5,27 @@ import ServiceCard from '@/components/Store/ServiceCard';
 import SimpleCarousel from '@/components/UI/MyCarousel/SimpleCarousel';
 import SimpleDropDown from '@/components/UI/MyDropDowns/SimpleDropDown';
 import SimpleNavigator from '@/components/UI/MyNavigators/SimpleNavigator';
+import { ProductsContext } from '@/hooks/contexts/ProductsContext';
 import Product from '@/hooks/entities/Product';
 import Service from '@/hooks/entities/Service';
 import BynyMarketLogo from '@/media/images/BynyMarketLogo.png';
 import ServiceClientIcon from '@/media/images/ServiceClientIcon.png';
+import newProducts from '@/store/products/newProducts';
+import { useContext, useEffect } from 'react';
 
 export default function HomePage() {
-	const myProduct = new Product();
-	myProduct.slug = "centrale-laitière";
-	myProduct.label = "Centrale laitière";
-	myProduct.price = 3.40;
-	myProduct.description = "Lait Frais Pasteurisé";
-	myProduct.illustration = BynyMarketLogo;
+	const { newProducts, loadNewProducts } = useContext(ProductsContext);
 
-	const myService = new Service();
-	myService.slug = "service-client";
-	myService.label = "Service client toujours disponible";
-	myService.description = "Nous sommes là pour vous aider";
-	myService.illustration = ServiceClientIcon;
+	console.log(newProducts);
+	console.log(loadNewProducts);
 
 	return (
-		<div className="space-y-8">
-			<h1>Home Page</h1>
+		<div className="space-y-8 text-center">
+			<div>
+				<h4>Home Page</h4>
+				{/* <SimpleCarousel products={newProducts} /> */}
+				<button onClick={loadNewProducts}>load</button>
+			</div>
 			{/* <MenuIcon /> */}
 			{/* <DropDownArrowIcon /> */}
 			{/* <SimpleDropDown

@@ -11,7 +11,7 @@ describe("Store/unit: Get most purchased products", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.productsContextActions.loadMostPurhasedProducts();
+      result.current.productsContextActions.loadMostPurchasedProducts();
     });
 
     expect(result.current.productsState.mostPurchasedProducts.length).toBeGreaterThan(1);

@@ -6,6 +6,7 @@ const productsInitialState: ProductsInterface = {
   newProducts: [new Product()],
   mostPurchasedProducts: [new Product()],
   allCategories: [""],
+  loadNewProducts: () => {},
 };
 
 export default productsInitialState;

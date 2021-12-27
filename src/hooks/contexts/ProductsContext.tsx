@@ -6,15 +6,16 @@ interface ProductsContextProviderProps {
   children: React.ReactNode;
 }
 
-export const ProductsContext = createContext(productsInitialState);
+export const ProductsContext = createContext({} as typeof productsInitialState);
 
 const ProductsContextProvider = ({ children }: ProductsContextProviderProps) => {
   const { productsState, productsContextActions } = useStore();
 
-  const providerValue = {
+  const providerValue = { 
     ...productsState,
-    ...productsContextActions,
   };
+
+  console.log(providerValue.loadNewProducts);
 
   return (
     <ProductsContext.Provider value={providerValue}>

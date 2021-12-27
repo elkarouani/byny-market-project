@@ -2,11 +2,17 @@ import { useReducer } from "react";
 import storeInitialState from "../initials/StoreInitialState";
 import storeReducer from "../reducers/storeReducer";
 
+
 export default function useStore() {
   const [storeState, storeDispatch] = useReducer(storeReducer, storeInitialState);
 
   return {
-    productsState: storeState.products,
+    productsState: {
+      ...storeState.products,
+      loadNewProducts: () => {
+        storeDispatch({ type: "GET_NEW_PRODUCTS" });
+      },
+    },
     servicesState: storeState.services,
     productsContextActions: {
       loadAllProducts: () => {
@@ -18,7 +24,7 @@ export default function useStore() {
       loadNewProducts: () => {
         storeDispatch({ type: "GET_NEW_PRODUCTS" });
       },
-      loadMostPurhasedProducts: () => {
+      loadMostPurchasedProducts: () => {
         storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" });
       }
     },
