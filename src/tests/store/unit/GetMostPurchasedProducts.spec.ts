@@ -5,15 +5,15 @@ describe("Store/unit: Get most purchased products", () => {
   it("should return the initial state", () => {
     const { result } = renderHook(() => useStore());
 
-    expect(result.current.productsState.mostPurchasedProducts.length).toBe(1);
+    expect(result.current.products.mostPurchasedProducts.length).toBe(1);
   });
   it("should get all products", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.productsContextActions.loadMostPurchasedProducts();
+      result.current.productsContextActions?.loadMostPurchasedProducts();
     });
 
-    expect(result.current.productsState.mostPurchasedProducts.length).toBeGreaterThan(1);
+    expect(result.current.products.mostPurchasedProducts.length).toBeGreaterThan(1);
   });
 });

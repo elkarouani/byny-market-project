@@ -14,10 +14,14 @@ export default function ProductCard(props: ProductCardProps) {
 		<div className="product-card__layout">
 			<div className="px-2 flex flex-col items-center">
 				<div className="product-card__illustration">
-					<img src={illustration} alt={label} />
+					<img src={`/images/${illustration}`} alt={label} />
 				</div>
 				<h3 className="product-card__label">{label}</h3>
-				<p className="product-card__description">{description}</p>
+				{
+					description.length < 15 
+					? <p className="product-card__description">{description}</p>
+					: <p className="product-card__description">{description.substring(0, 15)}...</p>
+				}
 			</div>
 			<div className="product-card__footer">
 				<h3 className="text-xs font-semibold">{price.toFixed(2)} Dh</h3>

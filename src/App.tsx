@@ -10,9 +10,9 @@ import ProductPage from './pages/store/Product'
 import CartPage from './pages/store/Cart'
 import CheckoutPage from './pages/store/Checkout'
 import NotFound from './pages/NotFound'
-import ContextManagerProvider from './hooks/ContextManager'
 import HeadlessLayout from './layouts/HeadlessLayout'
 import MainLayout from './layouts/MainLayout'
+import ContextManagerProvider from './hooks/ContextManager'
 
 function App() {
   return (

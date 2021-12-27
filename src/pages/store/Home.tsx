@@ -1,41 +1,52 @@
-import DropDownArrowIcon from '@/components/Icons/DropDownArrowIcon';
-import MenuIcon from '@/components/Icons/MenuIcon';
-import ProductCard from '@/components/Store/ProductCard';
 import ServiceCard from '@/components/Store/ServiceCard';
 import SimpleCarousel from '@/components/UI/MyCarousel/SimpleCarousel';
-import SimpleDropDown from '@/components/UI/MyDropDowns/SimpleDropDown';
-import SimpleNavigator from '@/components/UI/MyNavigators/SimpleNavigator';
-import { ProductsContext } from '@/hooks/contexts/ProductsContext';
-import Product from '@/hooks/entities/Product';
+import { useLoadNewProducts, useNewProducts } from '@/hooks/contexts/ProductsContext';
+import { useAllServices, useLoadAllServices } from '@/hooks/contexts/ServicesContext';
 import Service from '@/hooks/entities/Service';
-import BynyMarketLogo from '@/media/images/BynyMarketLogo.png';
-import ServiceClientIcon from '@/media/images/ServiceClientIcon.png';
-import newProducts from '@/store/products/newProducts';
-import { useContext, useEffect } from 'react';
+import { useEffect } from 'react';
 
 export default function HomePage() {
-	const { newProducts, loadNewProducts } = useContext(ProductsContext);
+	const [
+		newProducts, 
+		loadNewProducts,
+		allServices,
+		loadAllServices,
+	] = [
+		useNewProducts(), 
+		useLoadNewProducts(),
+		useAllServices(),
+		useLoadAllServices(),
+	];
 
-	console.log(newProducts);
-	console.log(loadNewProducts);
+	useEffect(() => {
+		loadNewProducts();
+		loadAllServices();
+	}, []);
 
 	return (
-		<div className="space-y-8 text-center">
-			<div>
-				<h4>Home Page</h4>
-				{/* <SimpleCarousel products={newProducts} /> */}
-				<button onClick={loadNewProducts}>load</button>
+		<div className="flex flex-col space-y-8 text-center">
+			<div className="py-6 flex flex-col items-center space-y-8">
+				<h4 className="home-page__section--title">Les Nouveaux :</h4>
+				<SimpleCarousel id="NProducts" products={newProducts ?? []} />
 			</div>
-			{/* <MenuIcon /> */}
-			{/* <DropDownArrowIcon /> */}
-			{/* <SimpleDropDown
-				label="Catégories"
-				items={['item 1', 'item 2', 'item 3']}
-			/> */}
-			{/* <ProductCard product={myProduct} /> */}
-			{/* <ServiceCard service={myService} /> */}
-			{/* <SimpleNavigator pagesCount={4} currentPage={1} /> */}
-			{/* <SimpleCarousel products={[myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct, myProduct]} /> */}
+			<div className="flex flex-col items-center">
+				<hr className="w-2/3" />
+				<div className="py-6 flex flex-col items-center space-y-8">
+					<h4 className="home-page__section--title">Les Plus Vendus :</h4>
+					<SimpleCarousel id="MPProducts" products={newProducts ?? []} />
+				</div>
+			</div>
+			<div className="flex flex-col items-center">
+				<hr className="w-2/3" />
+				<div className="py-6 flex flex-col items-center space-y-8">
+					<h4 className="home-page__section--title">Nos Services :</h4>
+					<div className="grid grid-cols-2">
+						{allServices.map((service: Service) => (
+							<ServiceCard key={service.slug} service={service} />
+						))}
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

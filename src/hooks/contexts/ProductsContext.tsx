@@ -1,24 +1,34 @@
-import React, { createContext } from "react";
+import { createContext, useContext } from "react";
 import productsInitialState from "../initials/ProductsInitialState";
+import ProductsInterface from "../interfaces/ProductsInterface";
 import useStore from "../uses/useStore";
 
-interface ProductsContextProviderProps {
-  children: React.ReactNode;
-}
+const ProductsContext = createContext<ProductsInterface>(productsInitialState);
 
-export const ProductsContext = createContext({} as typeof productsInitialState);
+export const useAllProducts = (): ProductsInterface['allProducts'] =>
+  useContext(ProductsContext).allProducts;
 
-const ProductsContextProvider = ({ children }: ProductsContextProviderProps) => {
-  const { productsState, productsContextActions } = useStore();
+export const useNewProducts = (): ProductsInterface['newProducts'] =>
+  useContext(ProductsContext).newProducts;
 
-  const providerValue = { 
-    ...productsState,
-  };
+export const useMostPurchasedProducts = (): ProductsInterface['mostPurchasedProducts'] =>
+  useContext(ProductsContext).mostPurchasedProducts;
 
-  console.log(providerValue.loadNewProducts);
+export const useAllCategories = (): ProductsInterface['allCategories'] =>
+  useContext(ProductsContext).allCategories;
+
+export const useLoadNewProducts = (): ProductsInterface['loadNewProducts'] =>
+  useContext(ProductsContext).loadNewProducts;
+
+
+const ProductsContextProvider: React.FunctionComponent = ({ children }) => {
+  const { products, productsContextActions } = useStore();
 
   return (
-    <ProductsContext.Provider value={providerValue}>
+    <ProductsContext.Provider value={{
+      ...products,
+      loadNewProducts: productsContextActions.loadNewProducts,
+    }}>
       {children}
     </ProductsContext.Provider>
   );

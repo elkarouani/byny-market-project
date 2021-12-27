@@ -1,37 +1,22 @@
-import { useReducer } from "react";
+import { useCallback, useReducer } from "react";
 import storeInitialState from "../initials/StoreInitialState";
+import StoreInterface from "../interfaces/StoreInterface";
 import storeReducer from "../reducers/storeReducer";
 
-
-export default function useStore() {
+export default function useStore(): StoreInterface {
   const [storeState, storeDispatch] = useReducer(storeReducer, storeInitialState);
 
   return {
-    productsState: {
-      ...storeState.products,
-      loadNewProducts: () => {
-        storeDispatch({ type: "GET_NEW_PRODUCTS" });
-      },
-    },
-    servicesState: storeState.services,
+    products: storeState.products,
+    services: storeState.services,
     productsContextActions: {
-      loadAllProducts: () => {
-        storeDispatch({ type: "GET_ALL_PRODUCTS" });
-      },
-      loadAllCategories: () => {
-        storeDispatch({ type: "GET_ALL_CATEGORIES" });
-      },
-      loadNewProducts: () => {
-        storeDispatch({ type: "GET_NEW_PRODUCTS" });
-      },
-      loadMostPurchasedProducts: () => {
-        storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" });
-      }
+      loadAllProducts: useCallback(() => storeDispatch({ type: "GET_ALL_PRODUCTS" }), []),
+      loadAllCategories: useCallback(() => storeDispatch({ type: "GET_ALL_CATEGORIES" }), []),
+      loadNewProducts: useCallback(() => storeDispatch({ type: "GET_NEW_PRODUCTS" }), []),
+      loadMostPurchasedProducts: useCallback(() => storeDispatch({ type: "GET_MOST_PURCHASED_PRODUCTS" }), []),
     },
     servicesContextActions: {
-      loadAllServices: () => {
-        storeDispatch({ type: "GET_ALL_SERVICES" });
-      }
-    }
+      loadAllServices: useCallback(() => storeDispatch({ type: "GET_ALL_SERVICES" }), []),
+    },
   };
 }
