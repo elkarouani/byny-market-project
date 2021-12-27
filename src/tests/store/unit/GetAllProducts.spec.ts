@@ -5,15 +5,15 @@ describe("Store/unit: Get all products", () => {
   it("should return the initial state", () => {
     const { result } = renderHook(() => useStore());
 
-    expect(result.current.productsState.allProducts.length).toBe(1);
+    expect(result.current.products.allProducts.length).toBe(1);
   });
   it("should get all products", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.productsContextActions.loadAllProducts();
+      result.current.productsContextActions?.loadAllProducts();
     });
 
-    expect(result.current.productsState.allProducts.length).toBeGreaterThan(1);
+    expect(result.current.products.allProducts.length).toBeGreaterThan(1);
   });
 });

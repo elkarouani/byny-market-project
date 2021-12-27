@@ -1,32 +1,32 @@
-const mostPurchasedProducts = [
+const mostPurchasedProductsData = [
 	{
 		slug: "lukus",
 		label: "Lukus",
 		description: "Filets de maquereaux à l'huile végétale",
-		illustration: "@/media/images/Lukus.png",
+		illustration: "Lukus.png",
 		price: 7.95,
 	},
 	{
 		slug: "centrale-laitière",
 		label: "Centrale laitière",
 		description: "Lait Frais Pasteurisé",
-		illustration: "@/media/images/Central.png",
+		illustration: "Central.png",
 		price: 3.40,
 	},
 	{
 		slug: "matinales",
 		label: "Matinales",
 		description: "Oeufs frais",
-		illustration: "@/media/images/Matinales.png",
+		illustration: "Matinales.png",
 		price: 44.20,
 	},
 	{
 		slug: "coeur-de-lait",
 		label: "Coeur de lait",
 		description: "fromage à tartiner",
-		illustration: "@/media/images/Fromage.png",
+		illustration: "Fromage.png",
 		price: 54.00,
 	}
 ];
 
-export default mostPurchasedProducts;
+export default mostPurchasedProductsData;

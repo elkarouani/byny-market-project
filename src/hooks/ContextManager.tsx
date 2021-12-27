@@ -1,33 +1,37 @@
 import Loading from '@/pages/Loading';
-import React, { Suspense } from 'react';
+import { FC, ComponentProps, useState } from 'react';
 
-const CONTEXT_REGISTER: Array<string> = [
-	'./contexts/UserContext',
-	'./contexts/ProductsContext',
-	'./contexts/ServicesContext',
-];
+import ProductsContextProvider from './contexts/ProductsContext';
+import ServicesContextProvider from './contexts/ServicesContext';
+import UserContextProvider from './contexts/UserContext';
 
-const getProviders = () =>
-	CONTEXT_REGISTER.map(context_relative_path =>
-		React.lazy(() => {
-			return new Promise(resolve => {
-				setTimeout(() => resolve(import(/* @vite-ignore */`${context_relative_path}`)), 1000);
-			});
-		})
+const ProvidersReducer = ((...providers: FC[]): FC => {
+	return providers.reduce(
+		(AccumulatedComponents, CurrentComponent) => {
+			return ({ children }: ComponentProps<FC>): JSX.Element => {
+				return (
+					<AccumulatedComponents>
+						<CurrentComponent>{children}</CurrentComponent>
+					</AccumulatedComponents>
+				);
+			};
+		},
+		({ children }) => <>{children}</>,
 	);
+})(...[
+	UserContextProvider,
+	ProductsContextProvider,
+	ServicesContextProvider
+]);
 
-interface ContextManagerProviderProps {
-	children: React.ReactNode,
-};
+const ContextManagerProvider: React.FunctionComponent = ({ children }) => {
+	const [isLoading, setIsLoading] = useState(true);
+	setTimeout(() => setIsLoading(false), 1000);
 
-const ContextManagerProvider = ({ children }: ContextManagerProviderProps) => {
-	const providers = getProviders();
-	const providersToDOM = providers.reduce(
-		(Inner, Outer) => <Outer>{Inner}</Outer>,
-		children
-	);
 
-	return <Suspense fallback={<Loading />}>{providersToDOM}</Suspense>;
-};
+	return isLoading
+		? <Loading />
+		: <ProvidersReducer>{children}</ProvidersReducer>
+}
 
 export default ContextManagerProvider;

@@ -5,7 +5,8 @@ import Product from "@/hooks/entities/Product";
 import { useState } from "react";
 
 interface SimpleCarouselProps {
-	products: Product[]
+	products: Product[],
+	id: string,
 }
 
 export default function SimpleCarousel(props: SimpleCarouselProps) {
@@ -13,6 +14,7 @@ export default function SimpleCarousel(props: SimpleCarouselProps) {
 
 	const scrollToElement = (targetIdQuery: string, direction: string) => {
 		const target = document.querySelector(targetIdQuery);
+		console.log(targetIdQuery, target);
 		if (!target) return;
 		target.scrollIntoView({ behavior: "smooth" });
 
@@ -33,7 +35,7 @@ export default function SimpleCarousel(props: SimpleCarouselProps) {
 						currentCarouselIndex > 0 && `cursor-pointer` || 'opacity-50'
 					}
 					onClick={() => scrollToElement(
-						`#carousel-item-${currentCarouselIndex - 1}`, 
+						`#carousel-${props.id}-item-${currentCarouselIndex - 1}`, 
 						"previous"
 					)}
 				>
@@ -42,7 +44,7 @@ export default function SimpleCarousel(props: SimpleCarouselProps) {
 			<div className="w-52 overflow-hidden">
 				<ul className="simple-carousel__content">
 					{props.products.map((product, index) =>
-						<li id={`carousel-item-${index}`} key={index} className="shrink-0 snap-center">
+						<li id={`carousel-${props.id}-item-${index}`} key={index} className="shrink-0 snap-center">
 							<ProductCard product={product} />
 						</li>
 					)}
@@ -53,7 +55,7 @@ export default function SimpleCarousel(props: SimpleCarouselProps) {
 					currentCarouselIndex < (props.products.length - 1) && `cursor-pointer` || 'opacity-50'
 				}
 				onClick={() => scrollToElement(
-					`#carousel-item-${currentCarouselIndex + 1}`,
+					`#carousel-${props.id}-item-${currentCarouselIndex + 1}`,
 					"next"
 				)}
 			>

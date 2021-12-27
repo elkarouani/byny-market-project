@@ -4,7 +4,16 @@ import servicesInitialState from "./ServicesInitialState";
 
 const storeInitialState: StoreInterface = {
   products: productsInitialState,
-  services: servicesInitialState
+  services: servicesInitialState,
+  productsContextActions: {
+    loadAllProducts: () => {},
+    loadAllCategories: () => {},
+    loadNewProducts: () => {},
+    loadMostPurchasedProducts: () => {},
+  },
+  servicesContextActions: {
+    loadAllServices: () => {},
+  },
 };
 
 export default storeInitialState;

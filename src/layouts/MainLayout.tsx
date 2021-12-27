@@ -1,5 +1,5 @@
 import React from "react";
-import BynyMarketLogo from "@/media/images/BynyMarketLogo.png";
+import BynyMarketLogo from "/images/BynyMarketLogo.png";
 import MenuIcon from "@/components/Icons/MenuIcon";
 import SimpleDropDown from "@/components/UI/MyDropDowns/SimpleDropDown";
 
@@ -24,9 +24,9 @@ export default function MainLayout({ children }: MainLayoutProps) {
 				<div className="layout__footer--navigation">
 					<h3 className="font-semibold">Navigation</h3>
 					<ul className="flex space-x-2">
-						<li className="underline">link1</li>
-						<li className="underline">link2</li>
-						<li className="underline">link3</li>
+						<li className="underline">home</li>
+						<li className="underline">products</li>
+						<li className="underline">cart</li>
 					</ul>
 				</div>
 				<div className="layout__footer--rights">

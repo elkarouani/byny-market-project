@@ -5,15 +5,15 @@ describe("Store/unit: Get all services", () => {
   it("should return the initial state", () => {
     const { result } = renderHook(() => useStore());
 
-    expect(result.current.servicesState.allServices.length).toBe(1);
+    expect(result.current.services.allServices.length).toBe(1);
   });
   it("should get all products", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.servicesContextActions.loadAllServices();
+      result.current.servicesContextActions?.loadAllServices();
     });
 
-    expect(result.current.servicesState.allServices.length).toBeGreaterThan(1);
+    expect(result.current.services.allServices.length).toBeGreaterThan(1);
   });
 });

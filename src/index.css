@@ -23,6 +23,11 @@
   @apply space-y-12 flex flex-col justify-center;
 }
 
+/* Home Page */
+.home-page__section--title {
+  @apply text-dark-primary text-xl tracking-[10%] underline underline-offset-2;
+}
+
 /* Simple Input */
 .simple-input__label {
   @apply ml-2 block text-sm font-medium leading-5 text-gray-700;
@@ -69,10 +74,10 @@
   @apply mt-2 text-sm font-semibold text-success;
 }
 .product-card__description {
-  @apply mt-1 text-dark-primary font-medium text-xs;
+  @apply w-3/5 mt-1 text-dark-primary font-medium text-xs;
 }
 .product-card__footer {
-  @apply w-full mt-4 flex items-center justify-between;
+  @apply w-full mt-4 flex items-center space-x-8;
 }
 .product-card__footer--add-to-cart {
   @apply w-fit h-4 !p-2 text-xs flex items-center justify-center;
