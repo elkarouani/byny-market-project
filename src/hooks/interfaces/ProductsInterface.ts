@@ -6,4 +6,5 @@ export default interface ProductsInterface {
   mostPurchasedProducts: Product[];
   allCategories: string[];
   loadNewProducts: () => void;
+  loadAllProducts: () => void;
 }

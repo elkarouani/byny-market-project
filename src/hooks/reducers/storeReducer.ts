@@ -1,3 +1,4 @@
+import allProductsData from "@/store/products/allProducts";
 import mostPurchasedProductsData from "@/store/products/mostPurchasedProducts";
 import newProductsData from "@/store/products/newProducts";
 import allServicesData from "@/store/services/allServices";
@@ -19,7 +20,15 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         ...state,
         products: {
           ...state.products,
-          allProducts: [...state.products.allProducts, new Product()],
+          allProducts: allProductsData.map((productData: Product) => {
+            let product = new Product();
+            product.slug = productData.slug;
+            product.label = productData.label;
+            product.description = productData.description;
+            product.illustration = productData.illustration;
+            product.price = productData.price;
+            return product;
+          }),
         },
       };
     case "GET_ALL_CATEGORIES":
