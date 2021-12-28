@@ -5,11 +5,17 @@ export default class Product {
   description: string;
   price: number;
 
-  constructor() {
-    this.slug = "";
-    this.label = "";
-    this.illustration = "";
-    this.description = "";
-    this.price = 0;
+  constructor(
+    slug?: string,
+    label?: string,
+    illustration?: string,
+    description?: string,
+    price?: number
+  ) {
+    this.slug = slug || "";
+    this.label = label || "";
+    this.illustration = illustration || "";
+    this.description = description || "";
+    this.price = price || 0;
   }
 }
