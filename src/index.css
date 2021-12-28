@@ -28,6 +28,11 @@
   @apply text-dark-primary text-xl tracking-[10%] underline underline-offset-2;
 }
 
+/* Products Page */
+.products-page__section--title {
+  @apply text-dark-primary text-xl tracking-[10%] underline underline-offset-2;
+}
+
 /* Simple Input */
 .simple-input__label {
   @apply ml-2 block text-sm font-medium leading-5 text-gray-700;
