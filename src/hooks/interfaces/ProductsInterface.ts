@@ -7,4 +7,5 @@ export default interface ProductsInterface {
   allCategories: string[];
   loadNewProducts: () => void;
   loadAllProducts: () => void;
+  addProductToCart: (product: Product) => void;
 }

@@ -2,6 +2,7 @@ import allProductsData from "@/store/products/allProducts";
 import mostPurchasedProductsData from "@/store/products/mostPurchasedProducts";
 import newProductsData from "@/store/products/newProducts";
 import allServicesData from "@/store/services/allServices";
+import CartDetails from "../entities/CartDetails";
 import Product from "../entities/Product";
 import Service from "../entities/Service";
 import StoreInterface from "../interfaces/StoreInterface";
@@ -11,7 +12,11 @@ type StoreActionType =
   | { type: "GET_ALL_CATEGORIES" }
   | { type: "GET_NEW_PRODUCTS" }
   | { type: "GET_MOST_PURCHASED_PRODUCTS" }
-  | { type: "GET_ALL_SERVICES" };
+  | { type: "GET_ALL_SERVICES" }
+  | { type: "ADD_PRODUCT_TO_CART", payload: Product }
+  | { type: "INCREASE_ITEM_QUANTITY", payload: string }
+  | { type: "DECREASE_ITEM_QUANTITY", payload: string }
+  | { type: "REMOVE_ITEM_FROM_CART", payload: string };
 
 export default function storeReducer(state: StoreInterface, action: StoreActionType) {
   switch (action.type) {
@@ -84,6 +89,48 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
             service.illustration = serviceData.illustration;
             return service;
           }),
+        },
+      };
+    case "ADD_PRODUCT_TO_CART":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: [...state.cart.cartItems, new CartDetails(action.payload, 1)],
+        },
+      };
+    case "INCREASE_ITEM_QUANTITY":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: state.cart.cartItems.map((cartItem: CartDetails) => {
+            if (cartItem.product.slug === action.payload) {
+              cartItem.quantity++;
+            }
+            return cartItem;
+          }),
+        },
+      };
+    case "DECREASE_ITEM_QUANTITY":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: state.cart.cartItems.map((cartItem: CartDetails) => {
+            if (cartItem.product.slug === action.payload) {
+              cartItem.quantity--;
+            }
+            return cartItem;
+          }),
+        },
+      };
+    case "REMOVE_ITEM_FROM_CART":
+      return {
+        ...state,
+        cart: {
+          ...state.cart,
+          cartItems: state.cart.cartItems.filter((cartItem: CartDetails) => cartItem.product.slug !== action.payload),
         },
       };
     default:
