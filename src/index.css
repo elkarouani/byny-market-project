@@ -93,6 +93,11 @@
   @apply w-11 h-11 mt-2 px-1 bg-[#3F7CAC80]/50 flex items-center justify-center rounded;
 }
 
+/* Cart Item */
+.cart-item__illustration {
+  @apply w-14 h-14 px-1 flex items-center justify-center bg-white border-2 border-[#161B33]/75 rounded-[15px];
+}
+
 /* Simple Navigator */
 .simple-navigator__layout {
   @apply flex items-center space-x-3 text-dark-primary text-sm text-center;
