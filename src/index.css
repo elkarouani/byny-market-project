@@ -18,7 +18,7 @@
   @apply text-primary text-sm flex flex-col items-center font-medium;
 }
 
-/* Sign In page */
+/* Auth page */
 .auth-page__form {
   @apply space-y-12 flex flex-col justify-center;
 }
@@ -31,6 +31,11 @@
 /* Products Page */
 .products-page__section--title {
   @apply text-dark-primary text-xl tracking-[10%] underline underline-offset-2;
+}
+
+/* Checkout page */
+.checkout-page__form {
+  @apply px-6 space-y-12 flex flex-col justify-center;
 }
 
 /* Simple Input */
