@@ -1,0 +1,14 @@
+setup:
+  addons:
+    - plan: heroku-postgresql
+    as: DATABASE
+
+  config:
+    env_file: .env
+
+build:
+  docker:
+    web: Dockerfile.prod
+
+  config:
+    NODE_ENV: production
