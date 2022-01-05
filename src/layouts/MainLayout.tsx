@@ -1,19 +1,45 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import BynyMarketLogo from "/images/BynyMarketLogo.png";
 import MenuIcon from "@/components/Icons/MenuIcon";
 import SimpleDropDown from "@/components/UI/MyDropDowns/SimpleDropDown";
+import NavigationMenu, { toggleMainMenu } from "@/components/Store/NavigationMenu";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
 }
 
 export default function MainLayout({ children }: MainLayoutProps) {
+	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
 	return (
 		<div className="layout">
-			<div className="flex flex-col">
-				<div className="py-1 px-4 flex items-center justify-between">
-					<img width="61.1" height="47.78" src={BynyMarketLogo} alt="byny market brand" />
-					<MenuIcon />
+			{isMenuOpen &&
+				<NavigationMenu 
+					isMenuOpen={isMenuOpen}
+					setMenuOpenState={(state: boolean) => setIsMenuOpen(state)}
+				/>
+			}
+			<div className="layout__header">
+				<div className="layout__header--navbar">
+					<Link to="/">
+						<img
+							width="61.1"
+							height="47.78"
+							src={BynyMarketLogo}
+							alt="byny market brand"
+							className="cursor-pointer"
+						/>
+					</Link>
+					<div
+						className="cursor-pointer"
+						onClick={() => toggleMainMenu({ 
+							isMenuOpen, 
+							setMenuOpenState: (state: boolean) => setIsMenuOpen(state)
+						})}
+					>
+						<MenuIcon />
+					</div>
 				</div>
 				<SimpleDropDown items={['item1', 'item2']} label="Catégories" />
 			</div>

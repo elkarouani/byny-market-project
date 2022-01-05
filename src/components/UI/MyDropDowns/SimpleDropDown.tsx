@@ -8,8 +8,10 @@ interface SimpleDropDownProps {
 
 export default function SimpleDropDown(props: SimpleDropDownProps) {
 	const [isOpen, setIsOpen] = useState(false);
+	const [direction, setDirection] = useState<"up" | "down">("down");
 	
 	const handleClick = () => {
+		setDirection(!isOpen ? "up" : "down");
 		if(!isOpen) return setIsOpen(true);
 
 		const dropDownContentDiv = document.querySelector(".simple-dropdown__content");
@@ -25,7 +27,7 @@ export default function SimpleDropDown(props: SimpleDropDownProps) {
 		<div className="flex flex-col relative">
 			<div className="simple-dropdown__trigger" onClick={handleClick}>
 				<span className="text-dark-primary font-medium selection:bg-none">{props.label || "drop"}</span>
-				<DropDownArrowIcon />
+				<DropDownArrowIcon direction={direction} />
 			</div>
 			{
 				isOpen &&
