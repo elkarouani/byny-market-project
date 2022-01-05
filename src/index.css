@@ -6,7 +6,22 @@
 
 /* Layout */
 .layout {
-  @apply font-montserrat text-primary animate-fade-in;
+  @apply font-montserrat text-primary animate-fade-in relative;
+}
+.layout__header {
+  @apply flex flex-col sticky top-0 bg-white z-10;
+}
+.layout__header--navbar {
+  @apply py-1 px-4 flex items-center justify-between;
+}
+.layout__menu--cover {
+  @apply w-full h-full bg-white/70 fixed top-0 z-20;
+}
+.layout__menu--container {
+  @apply w-4/5 h-full fixed top-0 z-30 px-6 pt-4 bg-primary flex justify-between;
+}
+.layout__menu--navigation {
+  @apply pt-10 space-y-4 text-white text-lg font-medium;
 }
 .layout__footer {
   @apply mt-4 p-3 flex items-center justify-between bg-[#95AFBA]/20;
