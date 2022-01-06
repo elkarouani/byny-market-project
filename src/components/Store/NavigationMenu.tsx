@@ -24,7 +24,7 @@ export const toggleMainMenu = (props: toggleMainMenuProps) => {
     document.querySelector('.layout__menu--container')?.classList.replace(
       "animate-fade-out-left", "animate-fade-in-left");
     setMenuOpenState(!isMenuOpen);
-  }, 500);
+  }, 300);
 }
 
 export default function NavigationMenu(props: NavigationMenuProps) {

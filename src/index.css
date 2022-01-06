@@ -122,15 +122,3 @@
 .simple-navigator__layout {
   @apply flex items-center space-x-3 text-dark-primary text-sm text-center;
 }
-
-/* Simple Carousel */
-.simple-carousel__content {
-  @apply flex overflow-x-auto gap-6 snap-x snap-mandatory before:shrink-0 before:w-[30vw] after:shrink-0 after:w-[30vw];
-}
-.simple-carousel__content::-webkit-scrollbar {
-  display: none;
-}
-.simple-carousel__content {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
-}
