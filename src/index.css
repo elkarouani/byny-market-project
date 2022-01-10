@@ -21,7 +21,10 @@
   @apply w-4/5 h-full fixed top-0 z-30 px-6 pt-4 bg-primary flex justify-between;
 }
 .layout__menu--navigation {
-  @apply pt-10 space-y-4 text-white text-lg font-medium;
+  @apply pt-20 space-y-6 text-white font-medium;
+}
+.layout__menu--navigation--item {
+  @apply pb-1 flex items-center space-x-2 border-b-2 border-white;
 }
 .layout__footer {
   @apply mt-4 p-3 flex items-center justify-between bg-[#95AFBA]/20;

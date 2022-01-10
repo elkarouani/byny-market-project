@@ -40,21 +40,27 @@ export default function NavigationMenu(props: NavigationMenuProps) {
       <div className="layout__menu--container animate-fade-in-left">
         <ul className="layout__menu--navigation">
           <li className="cursor-pointer">
-            <Link to="/" className="flex items-center space-x-2">
-              <HomeIcon />
-              <span>Home</span>
+            <Link to="/" className="layout__menu--navigation--item">
+              <div className="px-2 py-1 border-r-2 border-white">
+                <HomeIcon />
+              </div>
+              <span className="pt-1 pl-2 pr-32">Home</span>
             </Link>
           </li>
           <li className="cursor-pointer">
-            <Link to="cart" className="flex items-center space-x-2">
-              <CartIcon />
-              <span>Cart</span>
+            <Link to="/cart" className="layout__menu--navigation--item">
+              <div className="px-2 py-1 border-r-2 border-white">
+                <CartIcon />
+              </div>
+              <span className="pt-1 pl-2 pr-32">Cart</span>
             </Link>
           </li>
           <li className="cursor-pointer">
-            <Link to="signin" className="flex items-center space-x-2">
-              <SignOutIcon />
-              <span>Sign out</span>
+            <Link to="/signin" className="layout__menu--navigation--item">
+              <div className="px-2 py-1 border-r-2 border-white">
+                <SignOutIcon />
+              </div>
+              <span className="pt-1 pl-2">Sign out</span>
             </Link>
           </li>
         </ul>
