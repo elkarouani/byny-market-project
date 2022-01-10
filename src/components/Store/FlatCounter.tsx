@@ -1,5 +1,5 @@
-import MinusIcon from "./MinusIcon";
-import PlusIcon from "./PlusIcon";
+import MinusIcon from "../Icons/MinusIcon";
+import PlusIcon from "../Icons/PlusIcon";
 
 interface FlatCounterProps {
   countValue: number;

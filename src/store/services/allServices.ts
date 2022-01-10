@@ -2,7 +2,7 @@ const allServicesData = [
   {
 		slug: "service-client",
 		label: "Service client toujours disponible",
-		illustration: "ServiceClientIcon.png",
+		illustration: "ServiceClientIcon.svg",
 		description: "Nous vous proposons un service client à votre écoute et à votre satisfaction.",
 	},
 	{
