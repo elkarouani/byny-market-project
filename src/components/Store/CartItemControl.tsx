@@ -1,4 +1,4 @@
-import FlatCounter from "../Icons/FlatCounter";
+import FlatCounter from "./FlatCounter";
 import TrashIcon from "../Icons/TrashIcon";
 import FlatButton from "../UI/MyButtons/FlatButton";
 
