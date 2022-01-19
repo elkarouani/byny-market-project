@@ -7,7 +7,7 @@ describe("Store/unit: Increase item in cart", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.productsContextActions.addProductToCart(new Product("test"));
+      result.current.cartContextActions.addProductToCart(new Product("test"));
     });
 
     expect(result.current.cart.cartItems.length).toEqual(1);
@@ -19,5 +19,28 @@ describe("Store/unit: Increase item in cart", () => {
     });
 
     expect(result.current.cart.cartItems[0].quantity).toBe(2);
+  });
+  it("should return quantity value to 3 if quantity is 2", () => {
+    const { result } = renderHook(() => useStore());
+
+    act(() => {
+      result.current.cartContextActions.addProductToCart(new Product("test"));
+    });
+
+    expect(result.current.cart.cartItems.length).toEqual(1);
+    expect(result.current.cart.cartItems[0].quantity).toEqual(1);
+    expect(result.current.cart.cartItems[0].product.slug).toEqual("test");
+
+    act(() => {
+      result.current.cartContextActions.increaseItemQuantity("test");
+    });
+
+    expect(result.current.cart.cartItems[0].quantity).toBe(2);
+
+    act(() => {
+      result.current.cartContextActions.increaseItemQuantity("test");
+    });
+
+    expect(result.current.cart.cartItems[0].quantity).toBe(3);
   });
 });
