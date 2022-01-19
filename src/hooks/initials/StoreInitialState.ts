@@ -13,12 +13,12 @@ const storeInitialState: StoreInterface = {
     loadAllCategories: () => {},
     loadNewProducts: () => {},
     loadMostPurchasedProducts: () => {},
-    addProductToCart: (product: Product) => {}
   },
   servicesContextActions: {
     loadAllServices: () => {},
   },
   cartContextActions: {
+    addProductToCart: (product: Product) => {},
     increaseItemQuantity: (productSlug: string) => {},
     decreaseItemQuantity: (productSlug: string) => {},
     removeItemFromCart: (productSlug: string) => {}

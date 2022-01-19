@@ -12,12 +12,12 @@ export default interface StoreInterface {
         loadAllCategories: () => void;
         loadNewProducts: () => void;
         loadMostPurchasedProducts: () => void;
-        addProductToCart: (product: Product) => void;
     };
     servicesContextActions: {
         loadAllServices: () => void;
     };
     cartContextActions: {
+        addProductToCart: (product: Product) => void;
         increaseItemQuantity: (productSlug: string) => void;
         decreaseItemQuantity: (productSlug: string) => void;
         removeItemFromCart: (productSlug: string) => void;

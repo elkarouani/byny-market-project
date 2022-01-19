@@ -7,7 +7,7 @@ describe("Store/unit: Decrease item in cart", () => {
     const { result } = renderHook(() => useStore());
 
     act(() => {
-      result.current.productsContextActions.addProductToCart(new Product("test"));
+      result.current.cartContextActions.addProductToCart(new Product("test"));
     });
 
     expect(result.current.cart.cartItems.length).toEqual(1);

@@ -1,3 +1,4 @@
+import { useAddProductToCart } from "@/hooks/contexts/CartContext";
 import Product from "@/hooks/entities/Product";
 import ActionButton from "../UI/MyButtons/ActionButton";
 
@@ -9,8 +10,8 @@ interface ProductCardProps {
 }
 
 export default function ProductCard(props: ProductCardProps) {
-	const { slug, label, price, description, illustration } = props.product;
-	const addToCartHandler = () => props.onClick && props.onClick(slug);
+	const { label, price, description, illustration } = props.product;
+	const addToCartHandler = useAddProductToCart();
 
 	return (
 		<div className={`product-card__layout ${props.extraClassesForLayout || ''}`}>
@@ -30,6 +31,7 @@ export default function ProductCard(props: ProductCardProps) {
 				<ActionButton 
 					label="Ajouter"
 					extraClass="product-card__footer--add-to-cart" 
+					onClick={() => addToCartHandler(props.product)}
 				/>
 			</div>
 		</div>

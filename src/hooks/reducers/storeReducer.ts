@@ -92,11 +92,17 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         },
       };
     case "ADD_PRODUCT_TO_CART":
+      const isProductAlreadyInCart = state.cart.cartItems.find((cartItem: CartDetails) => {
+        return cartItem.product.slug === action.payload.slug;
+      });
+
       return {
         ...state,
         cart: {
           ...state.cart,
-          cartItems: [...state.cart.cartItems, new CartDetails(action.payload, 1)],
+          cartItems: isProductAlreadyInCart
+            ? [...state.cart.cartItems]
+            : [...state.cart.cartItems, new CartDetails(action.payload, 1)],
         },
       };
     case "INCREASE_ITEM_QUANTITY":

@@ -1,5 +1,6 @@
 import ProductCard from "@/components/Store/ProductCard";
 import SimpleNavigator from "@/components/UI/MyNavigators/SimpleNavigator";
+import { useCart } from "@/hooks/contexts/CartContext";
 import { useAllProducts, useLoadAllProducts } from "@/hooks/contexts/ProductsContext";
 import Product from "@/hooks/entities/Product";
 import { useEffect } from "react";

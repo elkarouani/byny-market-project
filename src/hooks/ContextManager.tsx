@@ -4,6 +4,7 @@ import { FC, ComponentProps, useState } from 'react';
 import ProductsContextProvider from './contexts/ProductsContext';
 import ServicesContextProvider from './contexts/ServicesContext';
 import UserContextProvider from './contexts/UserContext';
+import CartContextProvider from './contexts/CartContext';
 
 const ProvidersReducer = ((...providers: FC[]): FC => {
 	return providers.reduce(
@@ -21,7 +22,8 @@ const ProvidersReducer = ((...providers: FC[]): FC => {
 })(...[
 	UserContextProvider,
 	ProductsContextProvider,
-	ServicesContextProvider
+	ServicesContextProvider,
+	CartContextProvider
 ]);
 
 const ContextManagerProvider: React.FunctionComponent = ({ children }) => {

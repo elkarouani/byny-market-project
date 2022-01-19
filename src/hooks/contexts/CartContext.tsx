@@ -5,16 +5,19 @@ import useStore from "../uses/useStore";
 
 const CartContext = createContext<CartInterface>(cartInitialState);
 
-const useCart = (): CartInterface['cartItems'] => 
+export const useCart = (): CartInterface['cartItems'] =>
   useContext(CartContext).cartItems;
 
-const useIncreaseItemQuantity = (): CartInterface['increaseItemQuantity'] =>
+export const useAddProductToCart = (): CartInterface['addProductToCart'] =>
+  useContext(CartContext).addProductToCart;
+
+export const useIncreaseItemQuantity = (): CartInterface['increaseItemQuantity'] =>
   useContext(CartContext).increaseItemQuantity;
 
-const useDecreaseItemQuantity = (): CartInterface['decreaseItemQuantity'] =>
+export const useDecreaseItemQuantity = (): CartInterface['decreaseItemQuantity'] =>
   useContext(CartContext).decreaseItemQuantity;
 
-const useRemoveItemFromCart = (): CartInterface['removeItemFromCart'] =>
+export const useRemoveItemFromCart = (): CartInterface['removeItemFromCart'] =>
   useContext(CartContext).removeItemFromCart;
 
 
@@ -24,6 +27,7 @@ const CartContextProvider: React.FunctionComponent = ({ children }) => {
   return (
     <CartContext.Provider value={{
       ...cart,
+      addProductToCart: cartContextActions.addProductToCart,
       increaseItemQuantity: cartContextActions.increaseItemQuantity,
       decreaseItemQuantity: cartContextActions.decreaseItemQuantity,
       removeItemFromCart: cartContextActions.removeItemFromCart,
