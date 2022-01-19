@@ -1,6 +1,6 @@
+import TrashIcon from "@/components/Icons/TrashIcon";
+import FlatButton from "@/components/UI/MyButtons/FlatButton";
 import FlatCounter from "./FlatCounter";
-import TrashIcon from "../Icons/TrashIcon";
-import FlatButton from "../UI/MyButtons/FlatButton";
 
 interface CartItemControlProps {
   counterValue: number;
