@@ -13,12 +13,15 @@ type StoreActionType =
   | { type: "GET_NEW_PRODUCTS" }
   | { type: "GET_MOST_PURCHASED_PRODUCTS" }
   | { type: "GET_ALL_SERVICES" }
-  | { type: "ADD_PRODUCT_TO_CART", payload: Product }
-  | { type: "INCREASE_ITEM_QUANTITY", payload: string }
-  | { type: "DECREASE_ITEM_QUANTITY", payload: string }
-  | { type: "REMOVE_ITEM_FROM_CART", payload: string };
+  | { type: "ADD_PRODUCT_TO_CART"; payload: Product }
+  | { type: "INCREASE_ITEM_QUANTITY"; payload: string }
+  | { type: "DECREASE_ITEM_QUANTITY"; payload: string }
+  | { type: "REMOVE_ITEM_FROM_CART"; payload: string };
 
-export default function storeReducer(state: StoreInterface, action: StoreActionType) {
+export default function storeReducer(
+  state: StoreInterface,
+  action: StoreActionType
+) {
   switch (action.type) {
     case "GET_ALL_PRODUCTS":
       return {
@@ -65,15 +68,17 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         ...state,
         products: {
           ...state.products,
-          mostPurchasedProducts: mostPurchasedProductsData.map((productData: Product) => {
-            let product = new Product();
-            product.slug = productData.slug;
-            product.label = productData.label;
-            product.description = productData.description;
-            product.illustration = productData.illustration;
-            product.price = productData.price;
-            return product;
-          }),
+          mostPurchasedProducts: mostPurchasedProductsData.map(
+            (productData: Product) => {
+              let product = new Product();
+              product.slug = productData.slug;
+              product.label = productData.label;
+              product.description = productData.description;
+              product.illustration = productData.illustration;
+              product.price = productData.price;
+              return product;
+            }
+          ),
         },
       };
     case "GET_ALL_SERVICES":
@@ -92,9 +97,11 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         },
       };
     case "ADD_PRODUCT_TO_CART":
-      const isProductAlreadyInCart = state.cart.cartItems.find((cartItem: CartDetails) => {
-        return cartItem.product.slug === action.payload.slug;
-      });
+      const isProductAlreadyInCart = state.cart.cartItems.find(
+        (cartItem: CartDetails) => {
+          return cartItem.product.slug === action.payload.slug;
+        }
+      );
 
       return {
         ...state,
@@ -124,7 +131,10 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         cart: {
           ...state.cart,
           cartItems: state.cart.cartItems.map((cartItem: CartDetails) => {
-            if (cartItem.product.slug === action.payload) {
+            if (
+              cartItem.product.slug === action.payload &&
+              cartItem.quantity > 1
+            ) {
               cartItem.quantity--;
             }
             return cartItem;
@@ -136,7 +146,9 @@ export default function storeReducer(state: StoreInterface, action: StoreActionT
         ...state,
         cart: {
           ...state.cart,
-          cartItems: state.cart.cartItems.filter((cartItem: CartDetails) => cartItem.product.slug !== action.payload),
+          cartItems: state.cart.cartItems.filter(
+            (cartItem: CartDetails) => cartItem.product.slug !== action.payload
+          ),
         },
       };
     default:
