@@ -12,7 +12,7 @@ export default function CartWithItems({ cartItems }: {
 
   return (
     <div className="flex flex-col items-center space-y-8">
-      <div className="h-[400px] overflow-y-scroll space-y-2">
+      <div className="w-full h-[400px] overflow-y-scroll space-y-2">
         {cartItems.map((cartItem: CartDetails) =>
           <CartItem
             item={cartItem}
