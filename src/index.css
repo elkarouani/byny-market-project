@@ -110,6 +110,9 @@
 .product-card__footer--add-to-cart {
   @apply w-fit h-4 !p-2 text-xs flex items-center justify-center;
 }
+.product-card__footer--added-to-cart {
+  @apply w-fit h-4 !p-2 bg-primary text-xs text-white flex items-center justify-center;
+}
 
 /* Service Card */
 .service-card__illustration {

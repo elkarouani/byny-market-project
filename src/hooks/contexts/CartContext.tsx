@@ -11,6 +11,9 @@ export const useCart = (): CartInterface['cartItems'] =>
 export const useAddProductToCart = (): CartInterface['addProductToCart'] =>
   useContext(CartContext).addProductToCart;
 
+export const useIsProductInCart = (): CartInterface['isProductInCart'] =>
+  useContext(CartContext).isProductInCart;
+
 export const useIncreaseItemQuantity = (): CartInterface['increaseItemQuantity'] =>
   useContext(CartContext).increaseItemQuantity;
 
@@ -28,6 +31,7 @@ const CartContextProvider: React.FunctionComponent = ({ children }) => {
     <CartContext.Provider value={{
       ...cart,
       addProductToCart: cartContextActions.addProductToCart,
+      isProductInCart: cartContextActions.isProductInCart,
       increaseItemQuantity: cartContextActions.increaseItemQuantity,
       decreaseItemQuantity: cartContextActions.decreaseItemQuantity,
       removeItemFromCart: cartContextActions.removeItemFromCart,

@@ -1,4 +1,4 @@
-import { useAddProductToCart } from "@/hooks/contexts/CartContext";
+import { useAddProductToCart, useIsProductInCart, useRemoveItemFromCart } from "@/hooks/contexts/CartContext";
 import Product from "@/hooks/entities/Product";
 import ActionButton from "../UI/MyButtons/ActionButton";
 
@@ -10,8 +10,10 @@ interface ProductCardProps {
 }
 
 export default function ProductCard(props: ProductCardProps) {
-	const { label, price, description, illustration } = props.product;
+	const { slug, label, price, description, illustration } = props.product;
 	const addToCartHandler = useAddProductToCart();
+	const removeItemFromCartHandler = useRemoveItemFromCart();
+	const isProductInCartHandler = useIsProductInCart();
 
 	return (
 		<div className={`product-card__layout ${props.extraClassesForLayout || ''}`}>
@@ -21,17 +23,26 @@ export default function ProductCard(props: ProductCardProps) {
 				</div>
 				<h3 className="product-card__label">{label}</h3>
 				{
-					description.length < 15 
-					? <p className="product-card__description">{description}</p>
-					: <p className="product-card__description">{description.substring(0, 15)}...</p>
+					description.length < 15
+						? <p className="product-card__description">{description}</p>
+						: <p className="product-card__description">{description.substring(0, 15)}...</p>
 				}
 			</div>
 			<div className={`product-card__footer ${props.extraClassesForFooter || ''}`}>
 				<h3 className="text-xs font-semibold">{price.toFixed(2)} Dh</h3>
-				<ActionButton 
-					label="Ajouter"
-					extraClass="product-card__footer--add-to-cart" 
-					onClick={() => addToCartHandler(props.product)}
+				<ActionButton
+					label={isProductInCartHandler(slug) ? 'Retirer' : 'Ajouter'}
+					extraClass={`
+						${isProductInCartHandler(slug)
+							? 'product-card__footer--added-to-cart'
+							: 'product-card__footer--add-to-cart'
+						}
+					`}
+					onClick={() =>
+						isProductInCartHandler(slug)
+							? removeItemFromCartHandler(slug)
+							: addToCartHandler(props.product)
+					}
 				/>
 			</div>
 		</div>

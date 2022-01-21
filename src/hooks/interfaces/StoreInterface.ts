@@ -18,6 +18,7 @@ export default interface StoreInterface {
     };
     cartContextActions: {
         addProductToCart: (product: Product) => void;
+        isProductInCart: (productSlug: string) => boolean;
         increaseItemQuantity: (productSlug: string) => void;
         decreaseItemQuantity: (productSlug: string) => void;
         removeItemFromCart: (productSlug: string) => void;
