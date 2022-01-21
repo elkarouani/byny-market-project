@@ -19,6 +19,7 @@ const storeInitialState: StoreInterface = {
   },
   cartContextActions: {
     addProductToCart: (product: Product) => {},
+    isProductInCart: (productSlug: string) => false,
     increaseItemQuantity: (productSlug: string) => {},
     decreaseItemQuantity: (productSlug: string) => {},
     removeItemFromCart: (productSlug: string) => {}

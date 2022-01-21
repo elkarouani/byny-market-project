@@ -24,6 +24,7 @@ export default function useStore(): StoreInterface {
     },
     cartContextActions: {
       addProductToCart: useCallback((product: Product) => storeDispatch({ type: "ADD_PRODUCT_TO_CART", payload: product }), []),
+      isProductInCart: useCallback((productSlug: string) => storeState.cart.cartItems.some((item) => item.product.slug === productSlug), [storeState.cart.cartItems]),
       increaseItemQuantity: useCallback((productSlug: string) => storeDispatch({ type: "INCREASE_ITEM_QUANTITY", payload: productSlug }), []),
       decreaseItemQuantity: useCallback((productSlug: string) => storeDispatch({ type: "DECREASE_ITEM_QUANTITY", payload: productSlug }), []),
       removeItemFromCart: useCallback((productSlug: string) => storeDispatch({ type: "REMOVE_ITEM_FROM_CART", payload: productSlug }), [])
