@@ -1,5 +1,6 @@
 import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast';
 import SignInPage from './pages/auth/SignIn'
 import SignUpPage from './pages/auth/SignUp'
 import ResetPasswordPage from './pages/auth/ResetPassword'
@@ -17,6 +18,7 @@ import ContextManagerProvider from './hooks/ContextManager'
 function App() {
   return (
     <ContextManagerProvider>
+      <Toaster />
       <Router>
         <Routes>
           {/* Auth routes */}
