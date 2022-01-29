@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import BynyMarketLogo from "/images/BynyMarketLogo.png";
 import MenuIcon from "@/components/Icons/MenuIcon";
 import SimpleDropDown from "@/components/UI/MyDropDowns/SimpleDropDown";
 import NavigationMenu, { toggleMainMenu } from "@/components/Store/NavigationMenu";
+import { useAllCategories, useLoadAllCategories } from "@/hooks/contexts/ProductsContext";
 
 interface MainLayoutProps {
 	children: React.ReactNode;
@@ -11,11 +12,14 @@ interface MainLayoutProps {
 
 export default function MainLayout({ children }: MainLayoutProps) {
 	const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+	const [allCategories, loadAllCategories] = [useAllCategories(), useLoadAllCategories()];
+
+	useEffect(() => loadAllCategories(), []);
 
 	return (
 		<div className="layout">
 			{isMenuOpen &&
-				<NavigationMenu 
+				<NavigationMenu
 					isMenuOpen={isMenuOpen}
 					setMenuOpenState={(state: boolean) => setIsMenuOpen(state)}
 				/>
@@ -33,15 +37,15 @@ export default function MainLayout({ children }: MainLayoutProps) {
 					</Link>
 					<div
 						className="cursor-pointer"
-						onClick={() => toggleMainMenu({ 
-							isMenuOpen, 
+						onClick={() => toggleMainMenu({
+							isMenuOpen,
 							setMenuOpenState: (state: boolean) => setIsMenuOpen(state)
 						})}
 					>
 						<MenuIcon />
 					</div>
 				</div>
-				<SimpleDropDown items={['item1', 'item2']} label="Catégories" />
+				<SimpleDropDown items={allCategories.map(category => category.name).slice(1,4)} label="Catégories" />
 			</div>
 			<div className="layout__content">
 				{children}

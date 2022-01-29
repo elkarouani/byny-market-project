@@ -42,6 +42,7 @@ export default function SimpleDropDown(props: SimpleDropDownProps) {
 							{item}
 						</span>
 					))}
+					<span className="simple-dropdown__content--item">Plus de catégories</span>
 				</div>
 			}
 		</div>

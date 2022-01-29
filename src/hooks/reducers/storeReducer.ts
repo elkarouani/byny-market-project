@@ -1,3 +1,4 @@
+import allCategories from "@/store/products/allCategories";
 import allProductsData from "@/store/products/allProducts";
 import mostPurchasedProductsData from "@/store/products/mostPurchasedProducts";
 import newProductsData from "@/store/products/newProducts";
@@ -44,7 +45,7 @@ export default function storeReducer(
         ...state,
         products: {
           ...state.products,
-          allCategories: [...state.products.allCategories, ""],
+          allCategories: [...state.products.allCategories, ...allCategories],
         },
       };
     case "GET_NEW_PRODUCTS":

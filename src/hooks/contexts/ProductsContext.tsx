@@ -23,6 +23,9 @@ export const useLoadNewProducts = (): ProductsInterface['loadNewProducts'] =>
 export const useLoadAllProducts = (): ProductsInterface['loadAllProducts'] =>
   useContext(ProductsContext).loadAllProducts;
 
+export const useLoadAllCategories = (): ProductsInterface['loadAllCategories'] =>
+  useContext(ProductsContext).loadAllCategories;
+  
 const ProductsContextProvider: React.FunctionComponent = ({ children }) => {
   const { products, productsContextActions } = useStore();
 
@@ -31,6 +34,7 @@ const ProductsContextProvider: React.FunctionComponent = ({ children }) => {
       ...products,
       loadNewProducts: productsContextActions.loadNewProducts,
       loadAllProducts: productsContextActions.loadAllProducts,
+      loadAllCategories: productsContextActions.loadAllCategories,
     }}>
       {children}
     </ProductsContext.Provider>
