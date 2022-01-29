@@ -9,10 +9,25 @@ interface CartItemInterface {
 }
 
 export default function CartItem(props: CartItemInterface) {
-  const { illustration, label, description } = props.item.product;
+  const { slug, illustration, label, description } = props.item.product;
+
+  const onRemoveHandler = () => {
+    document
+      .querySelector(`#cart-item-${slug}`)
+      ?.classList
+      .toggle("animate-fade-out-left");
+      
+    setTimeout(
+      () => props.onRemove?.(),
+      300
+    );
+  };
 
   return (
-    <div className="px-6 space-y-2">
+    <div 
+      id={`cart-item-${slug}`} 
+      className="px-6 space-y-2"
+    >
       <div className="py-2 flex items-center justify-between text-sm">
         <div className="flex items-center space-x-3">
           <div className="cart-item__illustration">
@@ -27,7 +42,7 @@ export default function CartItem(props: CartItemInterface) {
           counterValue={props.item.quantity} 
           onPlusClick={props.onIncrease}
           onMinusClick={props.onDecrease}
-          onRemoveClick={props.onRemove}
+          onRemoveClick={onRemoveHandler}
         />
       </div>
       <hr />
