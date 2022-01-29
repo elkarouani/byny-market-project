@@ -85,7 +85,7 @@
   @apply py-1 flex items-center justify-center space-x-1 bg-[#95AFBA33] bg-opacity-20 cursor-pointer;
 }
 .simple-dropdown__content {
-  @apply w-full flex flex-col items-center bg-white text-dark-primary absolute -bottom-[66px];
+  @apply w-full flex flex-col items-center bg-white text-dark-primary absolute -bottom-[8rem];
 }
 .simple-dropdown__content--item {
   @apply w-full py-1 text-center bg-[#d1dbdf33] bg-opacity-20 hover:bg-[#95AFBA33] hover:bg-opacity-20 border-b border-[#95AFBA33] border-opacity-20 cursor-pointer selection:bg-none;
