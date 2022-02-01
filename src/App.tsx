@@ -42,7 +42,7 @@ function App() {
           <Route path="/products" element={
             <MainLayout><ProductsPage /></MainLayout>
           } />
-          <Route path="/products/:id" element={
+          <Route path="/products/:slug" element={
             <MainLayout><ProductPage /></MainLayout>
           } />
           <Route path="/cart" element={

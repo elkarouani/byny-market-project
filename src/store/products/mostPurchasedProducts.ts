@@ -5,6 +5,10 @@ const mostPurchasedProductsData = [
 		description: "Filets de maquereaux à l'huile végétale",
 		illustration: "Lukus.png",
 		price: 7.95,
+		unit: {
+			label: "g",
+			value: 125
+		}
 	},
 	{
 		slug: "centrale-laitière",
@@ -12,6 +16,10 @@ const mostPurchasedProductsData = [
 		description: "Lait Frais Pasteurisé",
 		illustration: "Central.png",
 		price: 3.40,
+		unit: {
+			label: "cl",
+			value: 50
+		}
 	},
 	{
 		slug: "matinales",
@@ -19,6 +27,10 @@ const mostPurchasedProductsData = [
 		description: "Oeufs frais",
 		illustration: "Matinales.png",
 		price: 44.20,
+		unit: {
+			label: "unités",
+			value: 30
+		}
 	},
 	{
 		slug: "coeur-de-lait",
@@ -26,6 +38,10 @@ const mostPurchasedProductsData = [
 		description: "fromage à tartiner",
 		illustration: "Fromage.png",
 		price: 54.00,
+		unit: {
+			label: "portions",
+			value: 64
+		}
 	}
 ];
 
