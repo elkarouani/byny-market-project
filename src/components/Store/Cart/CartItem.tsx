@@ -1,4 +1,5 @@
 import CartDetails from "@/hooks/entities/CartDetails";
+import { Link } from "react-router-dom";
 import CartItemControl from "./CartItemControl";
 
 interface CartItemInterface {
@@ -34,7 +35,12 @@ export default function CartItem(props: CartItemInterface) {
             <img src={`/images/${illustration}`} alt={label} />
           </div>
           <div>
-            <h4 className="font-semibold text-[#122E44]/70">{label}</h4>
+            <Link
+              to={`/products/${slug}`}
+              className="font-semibold text-[#122E44]/70 cursor-pointer"
+            >
+              {label}
+            </Link>
             <p className="text-[#000000]/30 font-medium">{description.substring(0, 20)}...</p>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { useAddProductToCart, useIsProductInCart, useRemoveItemFromCart } from "@/hooks/contexts/CartContext";
 import Product from "@/hooks/entities/Product";
+import { Link } from "react-router-dom";
 import ActionButton from "../UI/MyButtons/ActionButton";
 
 interface ProductCardProps {
@@ -21,7 +22,12 @@ export default function ProductCard(props: ProductCardProps) {
 				<div className="product-card__illustration">
 					<img src={`/images/${illustration}`} alt={label} />
 				</div>
-				<h3 className="product-card__label">{label}</h3>
+				<Link
+					to={`/products/${slug}`}
+					className="product-card__label"
+				>
+					{label}
+				</Link>
 				{
 					description.length < 15
 						? <p className="product-card__description">{description}</p>

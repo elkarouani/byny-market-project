@@ -6,7 +6,7 @@
 
 /* Layout */
 .layout {
-  @apply font-montserrat text-primary animate-fade-in relative;
+  @apply h-[100vh] font-montserrat text-primary animate-fade-in relative flex flex-col justify-between;
 }
 .layout__header {
   @apply flex flex-col sticky top-0 bg-white z-10;
@@ -73,6 +73,12 @@
 /* Action Button */
 .action-button {
   @apply border border-primary font-medium rounded-lg py-2 px-4;
+}
+.action-button__add-to-cart--with-icon {
+  @apply w-[30%] h-4 !p-4 text-xs flex items-center justify-around;
+}
+.action-button__added-to-cart--with-icon {
+  @apply w-[30%] h-4 !p-4 bg-primary text-xs text-white flex items-center justify-around;
 }
 
 /* Social Button */

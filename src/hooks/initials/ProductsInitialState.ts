@@ -8,7 +8,6 @@ const productsInitialState: ProductsInterface = {
   mostPurchasedProducts: [new Product()],
   allCategories: [new Category()],
   loadNewProducts: () => {},
-  loadAllProducts: () => {},
   loadAllCategories: () => {},
   addProductToCart: (product: Product) => {},
 };

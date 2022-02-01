@@ -36,6 +36,7 @@ export default function storeReducer(
             product.description = productData.description;
             product.illustration = productData.illustration;
             product.price = productData.price;
+            product.unit = productData.unit;
             return product;
           }),
         },

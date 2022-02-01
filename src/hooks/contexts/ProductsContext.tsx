@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext, useEffect } from "react";
 import productsInitialState from "../initials/ProductsInitialState";
 import ProductsInterface from "../interfaces/ProductsInterface";
 import useStore from "../uses/useStore";
@@ -20,20 +20,23 @@ export const useAllCategories = (): ProductsInterface['allCategories'] =>
 export const useLoadNewProducts = (): ProductsInterface['loadNewProducts'] =>
   useContext(ProductsContext).loadNewProducts;
 
-export const useLoadAllProducts = (): ProductsInterface['loadAllProducts'] =>
-  useContext(ProductsContext).loadAllProducts;
-
 export const useLoadAllCategories = (): ProductsInterface['loadAllCategories'] =>
   useContext(ProductsContext).loadAllCategories;
+
+export const getProductBySlug = (slug: string) => 
+  useContext(ProductsContext).allProducts.find(product => product.slug === slug);
   
 const ProductsContextProvider: React.FunctionComponent = ({ children }) => {
   const { products, productsContextActions } = useStore();
+
+  useEffect(() => {
+    productsContextActions.loadAllProducts();
+  }, []);
 
   return (
     <ProductsContext.Provider value={{
       ...products,
       loadNewProducts: productsContextActions.loadNewProducts,
-      loadAllProducts: productsContextActions.loadAllProducts,
       loadAllCategories: productsContextActions.loadAllCategories,
     }}>
       {children}
