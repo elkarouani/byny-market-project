@@ -4,8 +4,20 @@ services:
   front-app:
     build:
       context: ./front
-      dockerfile: Dockerfile.prod
+      dockerfile: Dockerfile.front.prod
     ports:
       - "80:80"
     env_file:
       - ./front/.env
+
+  back-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.back.prod
+    command: gunicorn bookstore_project.wsgi -b 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./back/src:/app/src:ro
+    env_file:
+      - ./back/.env

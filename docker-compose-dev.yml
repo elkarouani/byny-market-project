@@ -4,10 +4,22 @@ services:
   front-app:
     build:
       context: .
-      dockerfile: FrontDockerfile.dev
+      dockerfile: Dockerfile.front.dev
     ports:
       - "3000:3000"
     volumes:
       - ./front/src:/app/src:ro
     env_file:
       - ./front/.env
+  
+  back-app:
+    build:
+      context: .
+      dockerfile: Dockerfile.back.dev
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./back/src:/app/src:ro
+    env_file:
+      - ./back/.env
