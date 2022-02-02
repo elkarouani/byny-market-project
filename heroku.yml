@@ -8,7 +8,7 @@ setup:
 
 build:
   docker:
-    web: front/Dockerfile.prod
+    web: FrontDockerfile.prod
 
   config:
     NODE_ENV: production
