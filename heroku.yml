@@ -4,11 +4,11 @@ setup:
       as: DATABASE
 
   config:
-    env_file: .env
+    env_file: front/.env
 
 build:
   docker:
-    web: Dockerfile.prod
+    web: front/Dockerfile.prod
 
   config:
     NODE_ENV: production
