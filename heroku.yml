@@ -8,8 +8,7 @@ setup:
 
 build:
   docker:
-    web: Dockerfile.front.prod
-    backend: Dockerfile.back.prod
+    web: Dockerfile.prod
 
   config:
     NODE_ENV: production
