@@ -3,9 +3,9 @@ version: '3'
 services:
   front-app:
     build:
-      context: .
+      context: ./front
       dockerfile: Dockerfile.prod
     ports:
       - "80:80"
     env_file:
-      - ./.env
+      - ./front/.env
