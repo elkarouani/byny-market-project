@@ -3,8 +3,8 @@ version: '3'
 services:
   front-app:
     build:
-      context: ./front
-      dockerfile: Dockerfile.dev
+      context: .
+      dockerfile: FrontDockerfile.dev
     ports:
       - "3000:3000"
     volumes:

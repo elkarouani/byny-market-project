@@ -2,15 +2,15 @@ FROM node:lts
 
 WORKDIR /app
 
-COPY package.json .
+COPY front/package.json .
 
-COPY entrypoint.sh /entrypoint.sh
+COPY front/entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
 RUN npm install
 
-COPY . .
+COPY ./front .
 
 EXPOSE 3000
 
