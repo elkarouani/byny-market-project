@@ -6,6 +6,9 @@ name = "pypi"
 [packages]
 django = "==4.0.2"
 python-decouple = "*"
+djangorestframework = "*"
+markdown = "*"
+django-filter = "*"
 
 [dev-packages]
 
