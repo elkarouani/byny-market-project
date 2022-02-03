@@ -4,15 +4,15 @@ FROM node:lts as build
 
 WORKDIR /app
 
-COPY front/package.json .
+COPY package.json .
 
-COPY front/entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 
 RUN chmod +x /entrypoint.sh
 
 RUN npm install
 
-COPY ./front .
+COPY . .
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 

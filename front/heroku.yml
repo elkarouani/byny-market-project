@@ -4,7 +4,7 @@ setup:
 
 build:
   docker:
-    web: Dockerfile.front.prod
+    web: Dockerfile.prod
 
   config:
     NODE_ENV: production
