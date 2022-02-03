@@ -1,0 +1,10 @@
+setup:
+  config:
+    env_file: .env
+
+build:
+  docker:
+    web: Dockerfile.back.prod
+
+  config:
+    NODE_ENV: production
