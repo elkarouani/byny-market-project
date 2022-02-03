@@ -18,7 +18,6 @@ COPY Pipfile .
 COPY Pipfile.lock .
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install --deploy
 RUN PIPENV_VENV_IN_PROJECT=1 pipenv install gunicorn
-RUN PIPENV_VENV_IN_PROJECT=1 pipenv run python manage.py collectstatic --noinput
 
 
 FROM base AS runtime
@@ -34,5 +33,8 @@ USER appuser
 
 # Install application into container
 COPY . .
+
+# Collect static files
+RUN PIPENV_VENV_IN_PROJECT=1 pipenv run python manage.py collectstatic --noinput
 
 CMD gunicorn core.wsgi -b 0.0.0.0:$PORT
