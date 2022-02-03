@@ -29,13 +29,14 @@ ENV PATH="/.venv/bin:$PATH"
 # Create and switch to a new user
 RUN useradd --create-home appuser
 WORKDIR /home/appuser
-USER appuser
 
 # Install application into container
 COPY . .
 
 RUN chown appuser:appuser -R ./*
 RUN chmod +x ./*
+
+USER appuser
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
