@@ -38,7 +38,4 @@ RUN chmod +x ./*
 
 USER appuser
 
-# Collect static files
-RUN python manage.py collectstatic --noinput
-
 CMD gunicorn core.wsgi -b 0.0.0.0:$PORT

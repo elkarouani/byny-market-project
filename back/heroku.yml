@@ -6,5 +6,7 @@ build:
   docker:
     web: Dockerfile.prod
 
-  config:
-    NODE_ENV: production
+release:
+  image: web
+  command:
+    - python manage.py collectstatic --noinput
