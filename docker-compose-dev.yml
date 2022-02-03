@@ -3,8 +3,8 @@ version: '3'
 services:
   front-app:
     build:
-      context: .
-      dockerfile: Dockerfile.front.dev
+      context: ./front
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
     volumes:
@@ -14,8 +14,8 @@ services:
   
   back-app:
     build:
-      context: .
-      dockerfile: Dockerfile.back.dev
+      context: ./back
+      dockerfile: Dockerfile.dev
     command: python manage.py runserver 0.0.0.0:8000
     ports:
       - "8000:8000"
