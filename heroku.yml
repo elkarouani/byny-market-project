@@ -8,9 +8,8 @@ setup:
 
 build:
   docker:
-    web: Dockerfile.router
-    web_server: Dockerfile.back.prod
-    web_client: Dockerfile.front.prod
+    web: Dockerfile.front.prod
+    rest: Dockerfile.back.prod
 
   config:
     NODE_ENV: production
