@@ -34,4 +34,4 @@ USER appuser
 # Install application into container
 COPY ./back .
 
-CMD gunicorn core.wsgi -b 0.0.0.0:8000
+CMD gunicorn core.wsgi -b 0.0.0.0:$PORT
