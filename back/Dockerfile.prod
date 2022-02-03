@@ -30,11 +30,12 @@ ENV PATH="/.venv/bin:$PATH"
 RUN useradd --create-home appuser
 WORKDIR /home/appuser
 USER appuser
-RUN chown appuser:appuser -R /core
-RUN chmod +x /core
 
 # Install application into container
 COPY . .
+
+RUN chown appuser:appuser -R ./*
+RUN chmod +x ./*
 
 # Collect static files
 RUN python manage.py collectstatic --noinput
