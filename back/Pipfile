@@ -9,6 +9,7 @@ python-decouple = "*"
 djangorestframework = "*"
 markdown = "*"
 django-filter = "*"
+pillow = "*"
 
 [dev-packages]
 
