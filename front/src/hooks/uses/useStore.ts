@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useReducer } from "react";
+import { useCallback, useMemo, useReducer } from "react";
 import toast from "react-hot-toast";
 import Product from "../entities/Product";
 import storeInitialState from "../initials/StoreInitialState";
@@ -8,12 +8,10 @@ import storeReducer from "../reducers/storeReducer";
 export default function useStore(): StoreInterface {
   const [storeState, storeDispatch] = useReducer(storeReducer, storeInitialState);
 
-  const cart = useMemo(() => storeState.cart, [storeState.cart]);
-
   return {
     products: storeState.products,
     services: storeState.services,
-    cart,
+    cart: storeState.cart,
     productsContextActions: {
       loadAllProducts: useCallback(() => storeDispatch({ type: "GET_ALL_PRODUCTS" }), []),
       loadAllCategories: useCallback(() => storeDispatch({ type: "GET_ALL_CATEGORIES" }), []),
