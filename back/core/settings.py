@@ -28,6 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG') or False
 
 ALLOWED_HOSTS = ["localhost", "byny-market-rest.herokuapp.com"]
+CSRF_TRUSTED_ORIGINS = ['https://byny-market-rest.herokuapp.com']
 
 
 # Application definition
